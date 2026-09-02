@@ -668,8 +668,13 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 12px;
-    overflow: auto;
+    overflow: visible;
     box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+  .cert-modal-scroll{
+    max-height: calc(90vh - 24px);
+    overflow: auto;
+    border-radius: 6px;
   }
   .cert-modal img{
     display:block;
@@ -680,17 +685,18 @@
   .cert-modal-close{
     position: absolute;
     top: -14px; right: -14px;
-    width: 32px; height: 32px;
+    width: 34px; height: 34px;
     border-radius: 50%;
-    background: var(--red);
-    color: #12060a;
-    border: none;
-    font-size: 0.95rem;
+    background: #12060a;
+    color: #fff;
+    border: 2px solid var(--red);
+    font-size: 1rem;
     cursor: pointer;
     display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+    z-index: 2;
   }
-  .cert-modal-close:hover{ background: var(--red-bright); }
+  .cert-modal-close:hover{ background: #1a0d10; border-color: var(--red-bright); }
   .cert-row .ok{ color:#3ecf6a; margin-right:6px; }
 
   .lang-box{
@@ -1214,12 +1220,39 @@
 <div class="cert-modal-overlay" id="certModalOverlay" onclick="closeCertModal(event)">
   <div class="cert-modal">
     <button class="cert-modal-close" onclick="closeCertModal(event)" aria-label="Cerrar" data-i18n-aria="modal_close_aria"><i class="fa-solid fa-xmark"></i></button>
-    <img id="certModalImg" src="" alt="Vista previa del certificado" data-i18n-alt="cert_modal_alt">
+    <div class="cert-modal-scroll">
+      <img id="certModalImg" src="" alt="Vista previa del certificado" data-i18n-alt="cert_modal_alt">
+    </div>
   </div>
 </div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // botón de correo: si no hay cliente de correo configurado (ej. se abre
+  // Correo de Windows vacío), abre Gmail en el navegador como respaldo
+  function activarRespaldoGmail(id){
+    const link = document.getElementById(id);
+    if(!link) return;
+    link.addEventListener('click', function(){
+      const mailto = link.getAttribute('href') || '';
+      const m = mailto.match(/^mailto:([^?]*)(?:\?(.*))?$/);
+      if(!m) return;
+      const params = new URLSearchParams(m[2] || '');
+      const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(m[1])
+        + '&su=' + encodeURIComponent(params.get('subject') || '')
+        + '&body=' + encodeURIComponent(params.get('body') || '');
+      const inicio = Date.now();
+      setTimeout(function(){
+        // si la pestaña sigue visible tras un rato, probablemente no se abrió ningún cliente de correo
+        if(!document.hidden && Date.now() - inicio < 1800){
+          window.open(gmailUrl, '_blank');
+        }
+      }, 1000);
+    });
+  }
+  activarRespaldoGmail('heroEmailLink');
+  activarRespaldoGmail('contactEmailLink');
 
   // menú hamburguesa
   const burger = document.getElementById('burger');
