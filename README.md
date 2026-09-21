@@ -2,7 +2,7 @@
 
 Portafolio personal de **Gabriel Pérez Bárcenas**, Ingeniero en Tecnologías de la Información y Desarrollador Web Jr., egresado de la Universidad Politécnica del Estado de Morelos.
 
-🔗 **Sitio en vivo:** [gabrielpbsow.github.io/portafolio](https://gabrielpbsow.github.io/portafolio/)
+🔗 **Sitio en vivo:** [gabrielpbsow.github.io/Portafolio-](https://gabrielpbsow.github.io/Portafolio-/)
 
 ## Sobre el proyecto
 
