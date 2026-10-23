@@ -13,13 +13,11 @@ Un solo archivo `index.html`, construido con HTML, CSS y JavaScript vanilla (sin
 - 🖥️ Diseño con estética de terminal (comandos de shell simulados como encabezados de sección)
 - 🌗 Toggle de tema claro/oscuro con persistencia en `localStorage`
 - 🌐 Toggle bilingüe ES/EN, con traducción de textos, meta tags, alt text y atributos de accesibilidad
-- 📂 Ocho proyectos en una cuadrícula filtrable (Web / IA & Datos / Sistemas / Móvil), incluyendo sistemas reales en producción
-- 🧰 Stack organizado por categorías: lenguajes, backend, frontend, bases de datos, redes y sistemas, IA, móvil y herramientas
-- 🙌 Sección de habilidades profesionales
+- 📂 Ocho proyectos en una cuadrícula filtrable (Web / IA & Datos / Sistemas / Móvil)
 - 📊 Widget de contribuciones de GitHub
-- 📄 Descarga directa de CV en PDF, en español o inglés según el idioma de la página
+- 📄 Descarga directa de CV en PDF, en español o inglés según el idioma activo
 - 💬 Botón de contacto por WhatsApp y correo con mensaje prellenado
-- 🏆 Certificaciones (Cisco Networking Academy, entre otras) con vista previa del certificado
+- 🏆 Certificados embebidos con vista previa
 
 ## Stack
 
@@ -28,5 +26,5 @@ Un solo archivo `index.html`, construido con HTML, CSS y JavaScript vanilla (sin
 ## Contacto
 
 - GitHub: [@GabrielpBSow](https://github.com/GabrielpBSow)
-- LinkedIn: [gabriel-pérez-bárcenas](https://linkedin.com/in/gabriel-p%C3%A9rez-b%C3%A1rcenas-472307194)
-- Correo: [gabriel117682@gmail.com](mailto:gabriel117682@gmail.com)
+- LinkedIn: [gabriel-pérez-bárcenas](https://linkedin.com/in/gabriel-pérez-bárcenas-472307194)
+- Correo: gabriel117682@gmail.com
